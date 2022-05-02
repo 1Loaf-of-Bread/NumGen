@@ -151,9 +151,30 @@ validCount = 0
 runThrough = 0
 vcl = []
 
+
 if numberAmount == None and benchmark == False:
     print("Please enter amount of numbers to generate.")
     exit()
+
+if numberAmount != None and benchmark == True:
+    print(f"{Fore.RED}!~ ERROR ~!")
+    print(f"Amount of numbers to generate: {numberAmount}")
+    print()
+    print("But you also want to benchmark.")
+    print()
+
+    choice = ""
+    while choice != "b" and choice != "g":
+        choice = input("Would you like to benchmark or generate numbers? (b/g): ")
+
+        if choice != "b" and choice != "g":
+            print("ERROR!: Please enter either g (For Generating Numbers) or b (For Benchmarking)")
+
+    if choice == "g":
+        benchmark = False
+    else:
+        benchmark = True
+
 
 if str(benchmark) == 'True':
     print(f"{Fore.YELLOW}Benchmarking...")
